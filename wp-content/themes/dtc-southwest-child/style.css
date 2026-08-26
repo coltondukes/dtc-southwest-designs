@@ -1,90 +1,448 @@
 /*
 Theme Name: DTC Southwest Designs Child
 Theme URI: https://dtcsouthwest.com
-Description: Professional jewelry website redesign
+Description: Professional luxury jewelry website redesign
 Author: Colton Dukes
 Author URI: https://legacyai.com
 Template: twentytwentyfive
 Version: 1.0.0
 License: GPL v2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: dtc-southwest-child
 */
 
-/* Import parent theme styles */
 @import url('../twentytwentyfive/style.css');
 
-/* DTC Southwest Custom Styles */
 :root {
   --primary: #20B2AA;
   --primary-dark: #179B8F;
-  --text: #1a1a1a;
-  --light-bg: #f5f5f5;
+  --accent: #D4AF37;
+  --text-dark: #1a1a1a;
+  --text-light: #666;
+  --bg-light: #f9f9f9;
+  --border: #e5e5e5;
 }
 
-/* Header */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background: #fff;
+}
+
+/* ===== HEADER - LUXURY AESTHETIC ===== */
 .site-header {
   background: #fff;
-  border-bottom: 3px solid var(--primary);
-  padding: 1em 0;
+  border-bottom: 2px solid var(--primary);
+  padding: 1.2em 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: static !important;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2em;
 }
 
 .site-title {
-  font-size: 1.8em;
+  font-size: 2em;
   font-weight: 700;
-  color: var(--primary);
+  letter-spacing: -0.5px;
+  margin: 0;
 }
 
 .site-title a {
   color: var(--primary) !important;
   text-decoration: none !important;
+  transition: color 0.3s;
 }
 
-/* Navigation */
+.site-title a:hover {
+  color: var(--primary-dark) !important;
+}
+
+/* ===== NAVIGATION - PREMIUM ===== */
+.wp-block-navigation {
+  display: flex;
+  gap: 0;
+}
+
 .wp-block-navigation a {
-  color: var(--text) !important;
-  transition: color 0.3s;
+  padding: 0.8em 1.5em;
+  color: var(--text-dark) !important;
+  font-weight: 500;
+  font-size: 0.95em;
+  text-decoration: none !important;
+  transition: all 0.3s;
+  border-bottom: 3px solid transparent;
 }
 
 .wp-block-navigation a:hover {
   color: var(--primary) !important;
+  border-bottom-color: var(--primary) !important;
+  background: rgba(32, 178, 170, 0.05);
 }
 
-/* Buttons */
-.wp-block-button__link {
+/* ===== HERO SECTION - STUNNING ===== */
+.wp-block-cover,
+.wp-block-cover-image {
+  background-size: cover !important;
+  background-position: center !important;
+  min-height: 500px !important;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wp-block-cover::before,
+.wp-block-cover-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+.wp-block-cover-content,
+.wp-block-cover-image-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+.wp-block-cover h1,
+.wp-block-cover h2,
+.wp-block-cover-image h1,
+.wp-block-cover-image h2 {
+  color: #fff !important;
+  font-size: 3em !important;
+  font-weight: 700 !important;
+  margin-bottom: 1em !important;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+
+.wp-block-cover p,
+.wp-block-cover-image p {
+  color: rgba(255,255,255,0.95) !important;
+  font-size: 1.2em !important;
+  margin-bottom: 2em !important;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+/* ===== BUTTONS - LUXURY ===== */
+.wp-block-button__link,
+.ast-button,
+.button,
+input[type="button"],
+input[type="submit"],
+button {
   background: var(--primary) !important;
   color: #fff !important;
-  padding: 12px 30px !important;
-  border-radius: 25px !important;
+  border: none !important;
+  padding: 14px 40px !important;
+  border-radius: 30px !important;
+  font-weight: 600 !important;
+  font-size: 0.95em !important;
+  cursor: pointer !important;
   transition: all 0.3s !important;
+  box-shadow: 0 4px 15px rgba(32, 178, 170, 0.25) !important;
+  text-decoration: none !important;
+  letter-spacing: 0.5px;
 }
 
-.wp-block-button__link:hover {
+.wp-block-button__link:hover,
+.ast-button:hover,
+.button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:hover {
   background: var(--primary-dark) !important;
-  transform: translateY(-2px) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 25px rgba(32, 178, 170, 0.35) !important;
 }
 
-/* Links */
+/* ===== PRODUCT GRID - LUXURY SHOWCASE ===== */
+.woocommerce-LoopProduct-link,
+.product,
+.wp-block-post {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.woocommerce-LoopProduct-link:hover,
+.product:hover,
+.wp-block-post:hover {
+  border-color: var(--primary);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.woocommerce-loop-product__thumbnail,
+.product-image,
+.wp-block-post-featured-image {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+
+.woocommerce-loop-product__thumbnail img,
+.product-image img,
+.wp-block-post-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.woocommerce-LoopProduct-link:hover .woocommerce-loop-product__thumbnail img,
+.product:hover .product-image img,
+.wp-block-post:hover .wp-block-post-featured-image img {
+  transform: scale(1.08);
+}
+
+.woocommerce-loop-product__body {
+  padding: 1.5em;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.woocommerce-loop-product__title {
+  color: var(--text-dark) !important;
+  font-weight: 600 !important;
+  font-size: 1.1em !important;
+  margin-bottom: 0.8em !important;
+  line-height: 1.4;
+}
+
+.woocommerce-loop-product__price {
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+  font-size: 1.3em !important;
+  margin-bottom: 1.2em !important;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-dark);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.8em;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  color: var(--text-light);
+  margin-bottom: 1em;
+}
+
+/* ===== LINKS ===== */
 a {
   color: var(--primary) !important;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
 a:hover {
   color: var(--primary-dark) !important;
+  text-decoration: underline;
 }
 
-/* Typography */
-h1, h2, h3 {
-  color: var(--text);
+/* ===== SECTIONS & SPACING ===== */
+.wp-block-group,
+section {
+  padding: 3em 0;
 }
 
-/* Footer */
+.wp-site-blocks,
+.ast-container,
+.ast-container-fluid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+/* ===== FOOTER - LUXURY ===== */
 .site-footer {
   background: #1a1a1a;
   color: #fff;
+  padding: 3em 0 1em;
+  margin-top: 4em;
   border-top: 3px solid var(--primary);
 }
 
 .site-footer a {
   color: var(--primary) !important;
+}
+
+.site-footer a:hover {
+  color: #fff !important;
+}
+
+/* ===== FORMS ===== */
+input[type="email"],
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  border: 2px solid var(--border) !important;
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 1em;
+  transition: all 0.3s;
+  background: #fff;
+  font-family: inherit;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(32, 178, 170, 0.1);
+  outline: none;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .site-title {
+    font-size: 1.6em;
+  }
+
+  .wp-block-cover h1,
+  .wp-block-cover h2,
+  .wp-block-cover-image h1,
+  .wp-block-cover-image h2 {
+    font-size: 2em !important;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    padding: 1em 0;
+  }
+
+  .site-title {
+    font-size: 1.4em;
+  }
+
+  .wp-block-navigation a {
+    padding: 0.6em 1em;
+    font-size: 0.9em;
+  }
+
+  .wp-site-blocks,
+  .ast-container,
+  .ast-container-fluid {
+    padding: 0 1.5em;
+  }
+
+  .wp-block-cover,
+  .wp-block-cover-image {
+    min-height: 300px !important;
+  }
+
+  .wp-block-cover h1,
+  .wp-block-cover h2,
+  .wp-block-cover-image h1,
+  .wp-block-cover-image h2 {
+    font-size: 1.4em !important;
+  }
+
+  .wp-block-button__link,
+  .ast-button,
+  .button,
+  input[type="button"],
+  input[type="submit"],
+  button {
+    padding: 10px 25px !important;
+    font-size: 0.9em !important;
+  }
+
+  .wp-block-group,
+  section {
+    padding: 2em 0;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 1.2em;
+  }
+
+  .wp-block-navigation {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .wp-block-navigation a {
+    padding: 0.5em 0.8em;
+    font-size: 0.85em;
+  }
+
+  .wp-site-blocks,
+  .ast-container,
+  .ast-container-fluid {
+    padding: 0 1em;
+  }
+
+  .wp-block-group,
+  section {
+    padding: 1.5em 0;
+  }
 }
