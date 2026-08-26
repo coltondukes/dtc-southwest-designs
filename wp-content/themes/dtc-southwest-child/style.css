@@ -132,9 +132,7 @@ a:hover {
 
 /* ===== HERO SECTION ===== */
 .hero-section {
-  background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://via.placeholder.com/1600x700');
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, #20B2AA 0%, #179B8F 100%);
   min-height: 700px;
   display: flex;
   align-items: center;
@@ -143,6 +141,10 @@ a:hover {
   color: #fff;
   position: relative;
   margin-bottom: 0;
+}
+
+.hero-luxury {
+  background: linear-gradient(135deg, #20B2AA 0%, #179B8F 100%);
 }
 
 .hero-content {
@@ -559,3 +561,4 @@ a:hover {
   .about-content { grid-template-columns: 1fr; }
   .cta-section { padding: 3rem 0; }
 }
+
