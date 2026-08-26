@@ -6,10 +6,10 @@ get_header();
 ?>
 <main id="primary" class="site-main">
     <!-- HERO -->
-    <section class="hero-section">
+    <section class="hero-section hero-luxury">
         <div class="hero-content">
-            <h1>Discover Unique Artistic Jewelry</h1>
-            <p>Handcrafted pieces that elevate your style and express your individuality</p>
+            <h1>DTC Southwest Designs</h1>
+            <p>Handcrafted Artistic Jewelry</p>
             <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="cta-button">Shop Collection</a>
         </div>
     </section>
@@ -126,3 +126,4 @@ get_header();
     </section>
 </main>
 <?php get_footer(); ?>
+
