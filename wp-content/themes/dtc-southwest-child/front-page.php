@@ -8,9 +8,9 @@ get_header();
     <!-- HERO -->
     <section class="hero-section hero-luxury">
         <div class="hero-content">
-            <h1>DTC Southwest Designs</h1>
-            <p>Handcrafted Artistic Jewelry</p>
-            <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="cta-button">Shop Collection</a>
+            <h1><?php esc_html_e( 'DTC Southwest Designs', 'dtc-southwest-child' ); ?></h1>
+            <p><?php esc_html_e( 'Handcrafted Artistic Jewelry', 'dtc-southwest-child' ); ?></p>
+            <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="cta-button"><?php esc_html_e( 'Shop Collection', 'dtc-southwest-child' ); ?></a>
         </div>
     </section>
 
@@ -126,4 +126,5 @@ get_header();
     </section>
 </main>
 <?php get_footer(); ?>
+
 
