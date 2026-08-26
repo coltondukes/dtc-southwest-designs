@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
-    
+
     <!-- HERO SECTION -->
     <section class="hero-section">
         <div class="hero-content">
@@ -17,76 +17,110 @@ get_header();
         </div>
     </section>
 
-    <!-- PRODUCT CATEGORIES -->
+    <!-- CATEGORIES SECTION -->
     <section class="categories-section">
         <div class="section-container">
             <h2>Explore Our Collections</h2>
             <div class="categories-grid">
-                <?php
-                $categories = get_terms( array(
-                    'taxonomy'   => 'product_cat',
-                    'hide_empty' => false,
-                    'number'     => 6,
-                ) );
-                
-                if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
-                    foreach ( $categories as $category ) {
-                        $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
-                        $image_url = wp_get_attachment_url( $thumbnail_id );
-                        ?>
-                        <div class="category-card">
-                            <?php if ( $image_url ) : ?>
-                                <img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $category->name ); ?>">
-                            <?php endif; ?>
-                            <h3><?php echo esc_html( $category->name ); ?></h3>
-                            <a href="<?php echo esc_url( get_term_link( $category ) ); ?>" class="explore-link">Explore</a>
-                        </div>
-                        <?php
-                    }
-                }
-                ?>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x250" alt="Necklaces">
+                    <h3>Necklaces</h3>
+                    <a href="#" class="explore-link">Explore</a>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x250" alt="Bracelets">
+                    <h3>Bracelets</h3>
+                    <a href="#" class="explore-link">Explore</a>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x250" alt="Earrings">
+                    <h3>Earrings</h3>
+                    <a href="#" class="explore-link">Explore</a>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x250" alt="Rings">
+                    <h3>Rings</h3>
+                    <a href="#" class="explore-link">Explore</a>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x250" alt="Brooches">
+                    <h3>Brooches</h3>
+                    <a href="#" class="explore-link">Explore</a>
+                </div>
+                <div class="category-card">
+                    <img src="https://via.placeholder.com/300x250" alt="Cuffs">
+                    <h3>Cuffs</h3>
+                    <a href="#" class="explore-link">Explore</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FEATURED PRODUCTS -->
+    <!-- FEATURED PRODUCTS SECTION -->
     <section class="featured-products-section">
         <div class="section-container">
             <h2>Featured Collections</h2>
             <div class="products-grid">
-                <?php
-                $featured_products = new WP_Query( array(
-                    'post_type'      => 'product',
-                    'posts_per_page' => 6,
-                    'meta_query'     => array(
-                        array(
-                            'key'   => '_featured',
-                            'value' => 'yes',
-                        ),
-                    ),
-                ) );
-                
-                if ( $featured_products->have_posts() ) {
-                    while ( $featured_products->have_posts() ) {
-                        $featured_products->the_post();
-                        ?>
-                        <div class="product-card">
-                            <div class="product-image">
-                                <?php woocommerce_template_loop_product_thumbnail(); ?>
-                            </div>
-                            <div class="product-content">
-                                <h3><?php the_title(); ?></h3>
-                                <div class="product-price">
-                                    <?php woocommerce_template_loop_price(); ?>
-                                </div>
-                                <a href="<?php the_permalink(); ?>" class="view-button">View Details</a>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                    wp_reset_postdata();
-                }
-                ?>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                    </div>
+                    <div class="product-content">
+                        <h3>Handcrafted Pendant</h3>
+                        <div class="product-price">$49.99</div>
+                        <a href="#" class="view-button">View Details</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                    </div>
+                    <div class="product-content">
+                        <h3>Gemstone Ring</h3>
+                        <div class="product-price">$79.99</div>
+                        <a href="#" class="view-button">View Details</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                    </div>
+                    <div class="product-content">
+                        <h3>Vintage Necklace</h3>
+                        <div class="product-price">$59.99</div>
+                        <a href="#" class="view-button">View Details</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                    </div>
+                    <div class="product-content">
+                        <h3>Silver Bracelet</h3>
+                        <div class="product-price">$69.99</div>
+                        <a href="#" class="view-button">View Details</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                    </div>
+                    <div class="product-content">
+                        <h3>Pearl Earrings</h3>
+                        <div class="product-price">$89.99</div>
+                        <a href="#" class="view-button">View Details</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Product">
+                    </div>
+                    <div class="product-content">
+                        <h3>Gold Cuff</h3>
+                        <div class="product-price">$99.99</div>
+                        <a href="#" class="view-button">View Details</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -98,7 +132,7 @@ get_header();
                 <h2>About DTC Southwest Designs</h2>
                 <p>We specialize in crafting unique, artistic jewelry pieces that elevate your collection. Each piece is meticulously designed to ensure that you own something truly special and one-of-a-kind.</p>
                 <p>Our passion for quality craftsmanship and innovation drives us to create jewelry that makes a statement and tells your story.</p>
-                <a href="<?php echo esc_url( get_page_link( get_page_by_title( 'About Us' )->ID ) ); ?>" class="learn-more-btn">Learn More</a>
+                <a href="#" class="learn-more-btn">Learn More</a>
             </div>
             <div class="about-image">
                 <img src="https://via.placeholder.com/400x400" alt="DTC Southwest Designs">
