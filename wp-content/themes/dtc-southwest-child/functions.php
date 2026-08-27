@@ -50,17 +50,17 @@ add_theme_support( 'wc-product-gallery-slider' );
 add_filter( 'loop_shop_per_page', function() { return 12; } );
 
 // Remove default WooCommerce styles
-add_filter( 'woocommerce_enqueue_styles', function( \ ) {
-    unset( \['woocommerce-general'] );
-    unset( \['woocommerce-layout'] );
-    unset( \['woocommerce-smallscreen'] );
-    return \;
+add_filter( 'woocommerce_enqueue_styles', function( $enqueue_styles ) {
+    unset( $enqueue_styles['woocommerce-general'] );
+    unset( $enqueue_styles['woocommerce-layout'] );
+    unset( $enqueue_styles['woocommerce-smallscreen'] );
+    return $enqueue_styles;
 }, 999 );
 
 // Related products
-add_filter( 'woocommerce_output_related_products_args', function( \ ) {
-    \['posts_per_page'] = 3;
-    \['columns'] = 3;
-    return \;
+add_filter( 'woocommerce_output_related_products_args', function( $args ) {
+    $args['posts_per_page'] = 3;
+    $args['columns'] = 3;
+    return $args;
 } );
 ?>
