@@ -1050,3 +1050,196 @@ a:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ===== FOOTER STYLING ===== */
+.site-footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.site-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-footer-content p {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-nav a {
+    color: #20B2AA;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+/* ===== ABOUT PAGE STYLING ===== */
+.about-hero {
+    background: linear-gradient(135deg, #20B2AA 0%, #179B8F 100%);
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.about-hero-content h1 {
+    font-size: 3.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+}
+
+.about-hero-content p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.about-story,
+.about-mission,
+.about-designer {
+    padding: 4rem 2rem;
+}
+
+.about-story {
+    background: #fafaf8;
+}
+
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-container h2 {
+    font-size: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #1a1a1a;
+}
+
+.about-container p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.value-card {
+    background: #fff;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-color: #20B2AA;
+}
+
+.value-card h3 {
+    font-size: 1.4rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: #20B2AA;
+    margin-bottom: 1rem;
+}
+
+.value-card p {
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.about-designer {
+    background: #fff;
+}
+
+.about-designer p strong {
+    color: #20B2AA;
+}
+
+.about-cta {
+    background: linear-gradient(135deg, #20B2AA 0%, #179B8F 100%);
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.cta-content h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: #fff;
+    color: #20B2AA;
+    padding: 14px 40px;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background: transparent;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .about-hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .about-container h2 {
+        font-size: 1.8rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
