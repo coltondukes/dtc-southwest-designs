@@ -1407,3 +1407,198 @@ a:hover {
         font-size: 1.8rem;
     }
 }
+
+/* ===== GALLERY PAGE ===== */
+.gallery-hero {
+    background: linear-gradient(135deg, #20B2AA 0%, #179B8F 100%);
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.gallery-hero-content h1 {
+    font-size: 3.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+}
+
+.gallery-hero-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.gallery-section {
+    padding: 4rem 2rem;
+    background: #fafaf8;
+}
+
+.gallery-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: 2px solid #e0e0e0;
+    background: #fff;
+    color: #1a1a1a;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #20B2AA;
+    color: #fff;
+    border-color: #20B2AA;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    aspect-ratio: 1;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    transform: translateY(-8px);
+}
+
+.gallery-link {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.12);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(32, 178, 170, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-info {
+    text-align: center;
+    color: #fff;
+}
+
+.gallery-info h3 {
+    font-size: 1.4rem;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.gallery-info .price {
+    font-size: 1.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.view-text {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 2px solid #fff;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .view-text {
+    background: #fff;
+    color: #20B2AA;
+}
+
+.gallery-cta {
+    background: linear-gradient(135deg, #20B2AA 0%, #179B8F 100%);
+    color: #fff;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.gallery-cta .cta-content h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 1rem;
+}
+
+.gallery-cta .cta-content p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .gallery-filters {
+        gap: 0.5rem;
+    }
+    
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.75rem;
+    }
+    
+    .gallery-hero-content h1 {
+        font-size: 2rem;
+    }
+}
