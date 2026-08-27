@@ -1,33 +1,35 @@
-﻿<?php
-/**
- * DTC Southwest Designs Child Theme Functions
- */
-
+<?php
 // Enqueue parent theme styles
 add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 } );
 
-// Enable WooCommerce support
+// WooCommerce support
 add_theme_support( 'woocommerce' );
 add_theme_support( 'wc-product-gallery-zoom' );
 add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-slider' );
 
-// Set products per page
+// Products per page
 add_filter( 'loop_shop_per_page', function() {
     return 12;
 } );
 
 // Remove default WooCommerce styles
-add_filter( 'woocommerce_enqueue_styles', function( $enqueue_styles ) {
-    unset( $enqueue_styles['woocommerce-general'] );
-    unset( $enqueue_styles['woocommerce-layout'] );
-    unset( $enqueue_styles['woocommerce-smallscreen'] );
-    return $enqueue_styles;
+add_filter( 'woocommerce_enqueue_styles', function( \ ) {
+    unset( \['woocommerce-general'] );
+    unset( \['woocommerce-layout'] );
+    unset( \['woocommerce-smallscreen'] );
+    return \;
 }, 999 );
 
-// Hamburger menu toggle script
+// Lightbox library
+add_action( 'wp_enqueue_scripts', function() {
+    wp_enqueue_script( 'lightbox', 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/lightbox.min.js', array( 'jquery' ), '2.11.4', true );
+    wp_enqueue_style( 'lightbox', 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css', array(), '2.11.4' );
+} );
+
+// Mobile menu toggle
 add_action( 'wp_footer', function() {
     ?>
     <script>
@@ -52,10 +54,5 @@ add_action( 'wp_footer', function() {
     });
     </script>
     <?php
-} );
-
-// Enqueue interactive script
-add_action( 'wp_enqueue_scripts', function() {
-    wp_enqueue_script( 'dtc-interactive', get_stylesheet_directory_uri() . '/assets/js/interactive.js', array(), '1.0', true );
 } );
 ?>
