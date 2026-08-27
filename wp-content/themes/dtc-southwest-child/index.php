@@ -7,7 +7,7 @@ if ( have_posts() ) {
         the_content();
     }
 } else {
-    echo '<p>No content found.</p>';
+    echo do_shortcode( '[products limit=12 columns=3]' );
 }
 
 get_footer();
