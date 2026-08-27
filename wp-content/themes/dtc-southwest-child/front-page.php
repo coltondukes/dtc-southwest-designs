@@ -1,11 +1,14 @@
 <?php
 /**
- * DTC Southwest Designs - Professional Homepage
+ * Template Name: Home
+ * Description: DTC Southwest Designs Homepage
  */
+
 get_header();
 ?>
+
 <main id="primary" class="site-main">
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero-section hero-luxury">
         <div class="hero-content">
             <h1><?php esc_html_e( 'DTC Southwest Designs', 'dtc-southwest-child' ); ?></h1>
@@ -14,117 +17,94 @@ get_header();
         </div>
     </section>
 
-    <!-- CATEGORIES -->
-    <section class="categories-section">
+    <!-- EXPLORE COLLECTIONS SECTION -->
+    <section class="explore-collections">
         <div class="section-container">
-            <h2>Explore Our Collections</h2>
+            <h2><?php esc_html_e( 'Explore Our Collections', 'dtc-southwest-child' ); ?></h2>
             <div class="categories-grid">
                 <?php
-                $categories = get_terms( array(
+                \ = get_terms( array(
                     'taxonomy' => 'product_cat',
                     'hide_empty' => true,
                     'number' => 6,
                 ) );
 
-                foreach ( $categories as $cat ) {
-                    $img_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
-                    $img = wp_get_attachment_image_url( $img_id, 'medium' );
-                    ?>
-                    <div class="category-card">
-                        <div class="cat-img"><img src="<?php echo $img ? esc_url( $img ) : 'https://via.placeholder.com/300x250'; ?>" alt="<?php echo esc_attr( $cat->name ); ?>"></div>
-                        <h3><?php echo esc_html( $cat->name ); ?></h3>
-                        <a href="<?php echo esc_url( get_term_link( $cat ) ); ?>" class="explore-link">Explore</a>
-                    </div>
-                    <?php
-                }
-                ?>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURED PRODUCTS -->
-    <section class="featured-products-section">
-        <div class="section-container">
-            <h2>Featured Designs</h2>
-            <div class="products-grid">
-                <?php
-                $args = array(
-                    'post_type' => 'product',
-                    'posts_per_page' => 6,
-                    'orderby' => 'date',
-                    'order' => 'DESC',
-                );
-
-                $loop = new WP_Query( $args );
-                while ( $loop->have_posts() ) {
-                    $loop->the_post();
-                    global $product;
-                    $img = wp_get_attachment_image_url( $product->get_image_id(), 'medium' );
-                    ?>
-                    <div class="product-card">
-                        <div class="prod-img"><img src="<?php echo $img ? esc_url( $img ) : 'https://via.placeholder.com/300x300'; ?>" alt="<?php the_title_attribute(); ?>"></div>
-                        <div class="product-content">
-                            <h3><?php the_title(); ?></h3>
-                            <div class="product-price"><?php echo wp_kses_post( $product->get_price_html() ); ?></div>
-                            <a href="<?php the_permalink(); ?>" class="view-button">View Details</a>
+                if ( \ && ! is_wp_error( \ ) ) {
+                    foreach ( \ as \ ) {
+                        \ = get_term_meta( \->term_id, 'thumbnail_id', true );
+                        \ = \ ? wp_get_attachment_image_url( \, 'large' ) : '';
+                        \ = get_term_link( \ );
+                        ?>
+                        <div class="category-card">
+                            <?php if ( \ ) : ?>
+                                <img src="<?php echo esc_url( \ ); ?>" alt="<?php echo esc_attr( \->name ); ?>" />
+                            <?php else : ?>
+                                <div class="category-placeholder"></div>
+                            <?php endif; ?>
+                            <div class="category-info">
+                                <h3><?php echo esc_html( \->name ); ?></h3>
+                                <a href="<?php echo esc_url( \ ); ?>" class="explore-link"><?php esc_html_e( 'Explore', 'dtc-southwest-child' ); ?></a>
+                            </div>
                         </div>
-                    </div>
-                    <?php
+                        <?php
+                    }
                 }
-                wp_reset_postdata();
                 ?>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT -->
-    <section class="about-section">
-        <div class="section-container about-content">
-            <div class="about-text">
-                <h2>About DTC Southwest Designs</h2>
-                <p>We specialize in crafting unique, artistic jewelry pieces that elevate your collection. Founded in 2017, each piece is meticulously designed to ensure you own something truly special and one-of-a-kind.</p>
-                <p>Our passion for quality craftsmanship and innovation drives us to create jewelry that makes a statement and tells your story.</p>
-                <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'About Us' ) ) ); ?>" class="learn-more-btn">Learn More</a>
-            </div>
-            <div class="about-image">
-                <img src="https://via.placeholder.com/400x400" alt="DTC Southwest Designs">
+    <!-- ABOUT SECTION -->
+    <section class="about-homepage">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2><?php esc_html_e( 'About DTC Southwest Designs', 'dtc-southwest-child' ); ?></h2>
+                    <p><?php esc_html_e( 'We specialize in crafting unique, artistic jewelry pieces that tell a story. Founded in 2017, each piece is meticulously designed to ensure you own something truly special and one-of-a-kind.', 'dtc-southwest-child' ); ?></p>
+                    <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>" class="cta-button"><?php esc_html_e( 'Learn More', 'dtc-southwest-child' ); ?></a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS SECTION -->
     <section class="testimonials-section">
         <div class="section-container">
-            <h2>What Customers Say</h2>
+            <h2><?php esc_html_e( 'What Customers Say', 'dtc-southwest-child' ); ?></h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"I absolutely love the unique pieces I found here. Each one tells a story and adds a special touch to my collection. Highly recommend!"</p>
-                    <p class="author">— Sarah M.</p>
+                    <div class="stars">?????</div>
+                    <blockquote>
+                        <p><?php esc_html_e( 'I absolutely love the unique pieces I found here. Each one tells a story and adds a special touch to my collection. Highly recommend!', 'dtc-southwest-child' ); ?></p>
+                        <footer><?php esc_html_e( '� Sarah M.', 'dtc-southwest-child' ); ?></footer>
+                    </blockquote>
+                </div>
+                <div class="testimonial-card featured">
+                    <div class="stars">?????</div>
+                    <blockquote>
+                        <p><?php esc_html_e( 'The craftsmanship is incredible! I received my order quickly and it exceeded my expectations. Will definitely shop again.', 'dtc-southwest-child' ); ?></p>
+                        <footer><?php esc_html_e( '� Jessica K.', 'dtc-southwest-child' ); ?></footer>
+                    </blockquote>
                 </div>
                 <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"The craftsmanship is incredible! I received my order quickly and it exceeded my expectations. Will definitely shop again."</p>
-                    <p class="author">— Jessica K.</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"These pieces are not just jewelry; they are works of art! Perfect for someone who appreciates unique, handcrafted items."</p>
-                    <p class="author">— Emily R.</p>
+                    <div class="stars">?????</div>
+                    <blockquote>
+                        <p><?php esc_html_e( 'These pieces are not just jewelry, they are works of art! Perfect for someone who appreciates unique, handcrafted items.', 'dtc-southwest-child' ); ?></p>
+                        <footer><?php esc_html_e( '� Emily R.', 'dtc-southwest-child' ); ?></footer>
+                    </blockquote>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- FINAL CTA SECTION -->
     <section class="cta-section">
-        <div class="section-container">
-            <h2>Ready to Find Your Perfect Piece?</h2>
-            <p>Explore our complete collection of handcrafted jewelry</p>
-            <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="cta-button-large">Browse All Products</a>
+        <div class="cta-content">
+            <h2><?php esc_html_e( 'Ready to Find Your Perfect Piece?', 'dtc-southwest-child' ); ?></h2>
+            <p><?php esc_html_e( 'Explore our complete collection of handcrafted jewelry', 'dtc-southwest-child' ); ?></p>
+            <a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="cta-button"><?php esc_html_e( 'Browse All Products', 'dtc-southwest-child' ); ?></a>
         </div>
     </section>
 </main>
+
 <?php get_footer(); ?>
-
-
