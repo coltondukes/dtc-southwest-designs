@@ -54,8 +54,8 @@ get_header();
                         \ = wp_get_attachment_image_url( get_post_thumbnail_id(), 'large' );
                         ?>
                         
-                        <div class="gallery-item <?php echo esc_attr( \ ); ?>" data-lightbox="gallery">
-                            <a href="<?php echo esc_url( \ ); ?>" class="gallery-link" data-lightbox="gallery" data-title="<?php echo esc_attr( get_the_title() ); ?>">
+                        <div class="gallery-item <?php echo esc_attr( \ ); ?>">
+                            <a href="<?php echo esc_url( get_permalink() ); ?>" class="gallery-link">
                                 <img src="<?php echo esc_url( \ ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" />
                                 <div class="gallery-overlay">
                                     <div class="gallery-info">
